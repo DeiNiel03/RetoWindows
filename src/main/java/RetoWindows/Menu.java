@@ -27,7 +27,8 @@ public class Menu {
 			System.out.println(entrada);
 	      break;
 	    case 2:
-	    	System.out.println(lectorArchivos.leerArchivoTXT("archivoPrueba.txt"));
+//	    	System.out.println(lectorArchivos.leerArchivoTXT("archivoPrueba.txt"));
+	    	System.out.println(lectorArchivos.leerArchivoCSV("films_score.csv"));
 	      break;
 	    default:
 	      System.out.println("Selección invalida");
