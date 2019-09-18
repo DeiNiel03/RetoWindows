@@ -22,15 +22,15 @@ public class Menu {
 	    // Switch construct
 	    switch (option) {
 	    case 1:
-			LectorEntrada lectorEntrada = new LectorEntrada();
-			entrada = lectorEntrada.Lector(reader);
+			EntradaEstandar lectorEntrada = new EntradaEstandar();
+			entrada = lectorEntrada.ComprobarEntrada(reader);
 			System.out.println(entrada);
 	      break;
 	    case 2:
 	    	System.out.println(lectorArchivos.leerArchivoTXT("archivoPrueba.txt"));
 	      break;
 	    default:
-	      System.out.println("Selección invalida");
+	    	System.out.println("Selección invalida");
 	    }
 		return 0;
 	}

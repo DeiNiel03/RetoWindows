@@ -7,6 +7,6 @@ public class Excepcion extends Exception{
 	}
 	
 	public String ErrorEntrada() {
-		return "El texto de la bus queda deve ser unicamente alphanumerico, intentelo de nuevo";
+		return "El texto de la busqueda debe ser unicamente alphanumerico, intentelo de nuevo";
 	}
 }
