@@ -7,6 +7,13 @@ import java.util.Arrays;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.xpath.XPathExpression;
 
 import com.opencsv.CSVReader;
 
@@ -71,6 +78,19 @@ public class LectorArchivos {
 		}
 
 		return resultado;
+	}
+	
+	/**
+	 * Devuelve el contenido del archivo XML cuyo nombre se le pasa por parametro
+	 * @param nombreArchivo
+	 * @return el contenido del archivo en forma de string
+	 */
+	public String leerArchivoXML(String nombreArchivo) {
+		
+		String path = System.getProperty("user.dir") + "\\" + nombreArchivo; //books.xml
+		String resultado = "";
+		return resultado;
+		
 	}
 
 }
