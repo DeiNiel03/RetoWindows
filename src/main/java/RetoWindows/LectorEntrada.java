@@ -22,6 +22,7 @@ public class LectorEntrada {
 			}
 			catch(Exception e) {
 				System.out.println(excepcion.ErrorEntrada());
+				reader.nextLine();
 			}
 		}
 		return entrada;
