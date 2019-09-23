@@ -1,6 +1,7 @@
 package RetoWindows;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -9,11 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.xpath.XPathExpression;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import com.opencsv.CSVReader;
 
@@ -87,9 +88,41 @@ public class LectorArchivos {
 	 */
 	public String leerArchivoXML(String nombreArchivo) {
 		
-		String path = System.getProperty("user.dir") + "\\" + nombreArchivo; //books.xml
-		String resultado = "";
-		return resultado;
+		String filePath = System.getProperty("user.dir") + "\\" + nombreArchivo; //books.xml
+        File xmlFile = new File(filePath);
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder;
+        String root = "";
+        try {
+            dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(xmlFile);
+            doc.getDocumentElement().normalize();
+            root = "Root element: " + doc.getDocumentElement().getNodeName() + "\n";
+            root += "----------------------------\n";
+            NodeList nodeList = doc.getElementsByTagName("book");
+            
+            for (int i = 0; i < nodeList.getLength(); i++) {
+        		Node nNode = nodeList.item(i);
+        		root += "Current Element: " + nNode.getNodeName() + "\n";
+        		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+        			Element eElement = (Element) nNode;
+
+        			root += "Author: " + eElement.getAttribute("author") + "\n";
+        			root += "Title: " + eElement.getElementsByTagName("title").item(0).getTextContent() + "\n";
+        			root += "Genre: " + eElement.getElementsByTagName("genre").item(0).getTextContent() + "\n";
+        			root += "Price: " + eElement.getElementsByTagName("price").item(0).getTextContent() + "\n";
+        			root += "Publish Date: " + eElement.getElementsByTagName("publish_date").item(0).getTextContent() + "\n";
+        			root += "Description: " + eElement.getElementsByTagName("description").item(0).getTextContent() + "\n";
+        			root += "----------------------------\n";
+        		}
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return root;
 		
 	}
 
