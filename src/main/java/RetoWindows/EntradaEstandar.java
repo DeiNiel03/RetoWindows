@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class EntradaEstandar {
 	
-	public String ComprobarEntrada(Scanner reader) {
+	public String ComprobarEntrada(LectorEntradaEstandar lectorEntrada, Scanner reader) {
 		String entrada = "";
 		Excepcion excepcion = new Excepcion();
 		Boolean valida = false;
@@ -14,24 +14,18 @@ public class EntradaEstandar {
 		while(valida == false) {
 			try {
 				System.out.println("Introduzca el nombre del fichero que quiere buscar:");
-				entrada = Lector(reader);
+				entrada = lectorEntrada.Lector(reader);
 				valida = entrada.matches("[a-zA-Z0-9.]+");
 				if(valida == true) {}
 				else
-					throw new Excepcion();
+					excepcion.ErrorEntrada();
 			}
 			catch(Exception e) {
-				System.out.println(excepcion.ErrorEntrada());
+				System.out.println(e.getMessage());
 				reader.nextLine();
 			}
 		}
 		return entrada;
 	}
 	
-	public String Lector(Scanner reader) {
-		String entrada;
-		
-		entrada = reader.next();
-		return entrada;
-	}
 }

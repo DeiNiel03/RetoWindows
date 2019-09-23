@@ -6,7 +6,7 @@ public class Excepcion extends Exception{
 		
 	}
 	
-	public String ErrorEntrada() {
-		return "El texto de la busqueda debe ser unicamente alphanumerico, intentelo de nuevo";
+	public void ErrorEntrada() {
+		throw new IllegalArgumentException("El texto de la busqueda debe ser unicamente alphanumerico, intentelo de nuevo");
 	}
 }

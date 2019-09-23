@@ -22,8 +22,9 @@ public class Menu {
 	    // Switch construct
 	    switch (option) {
 	    case 1:
-			EntradaEstandar lectorEntrada = new EntradaEstandar();
-			entrada = lectorEntrada.ComprobarEntrada(reader);
+	    	LectorEntradaEstandar lector = new LectorEntradaEstandar();
+			EntradaEstandar entradaEstandar = new EntradaEstandar();
+			entrada = entradaEstandar.ComprobarEntrada(lector, reader);
 			System.out.println(entrada);
 	      break;
 	    case 2:
