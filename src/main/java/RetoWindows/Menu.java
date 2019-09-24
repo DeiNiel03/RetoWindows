@@ -24,8 +24,12 @@ public class Menu {
 	    case 1:
 	    	LectorEntradaEstandar lector = new LectorEntradaEstandar();
 			EntradaEstandar entradaEstandar = new EntradaEstandar();
-			entrada = entradaEstandar.ComprobarEntrada(lector, reader);
-			System.out.println(entrada);
+			Boolean valida = false;
+			
+			while(valida == false) {
+				valida = entradaEstandar.ComprobarEntrada(lector, reader);
+			}
+			System.out.println(entradaEstandar.DevolverEntrada());
 	      break;
 	    case 2:
 //	    	System.out.println(lectorArchivos.leerArchivoTXT("archivoPrueba.txt"));

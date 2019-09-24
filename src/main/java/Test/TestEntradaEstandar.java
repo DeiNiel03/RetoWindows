@@ -21,12 +21,19 @@ public class TestEntradaEstandar {
 		LectorEntradaEstandar lectorMock = mock(LectorEntradaEstandar.class);
 		when(lectorMock.Lector(reader)).thenReturn("entrada");
 		
-		assertEquals("entrada", entradaEstandar.ComprobarEntrada(lectorMock, reader));
+		assertEquals(true, entradaEstandar.ComprobarEntrada(lectorMock, reader));
 	}
 	
 	@Test
 	public void testEntradaEstandar2() {
 		LectorEntradaEstandar lectorMock = mock(LectorEntradaEstandar.class);
 		when(lectorMock.Lector(reader)).thenReturn("entrada?'");
+		
+		assertEquals(false, entradaEstandar.ComprobarEntrada(lectorMock, reader));
+	}
+	
+	@Test
+	public void testMostrarEntrada() {
+		
 	}
 }
