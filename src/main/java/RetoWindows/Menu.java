@@ -13,7 +13,9 @@ public class Menu {
 		// muestra el menu de opciones
 	    System.out.println("SELECCIONA UNA OPCIÓN");
 	    System.out.println("1 - Leer desde entrada estandar");
-	    System.out.println("2 - Leer desde archivo");
+	    System.out.println("2 - Leer archivo TXT");
+	    System.out.println("3 - Leer archivo CSV");
+	    System.out.println("4 - Leer archivo XML");
 	    System.out.println();
 	    
 	    // recoge la opcion seleccionada
@@ -32,8 +34,13 @@ public class Menu {
 			System.out.println(entradaEstandar.DevolverEntrada());
 	      break;
 	    case 2:
-//	    	System.out.println(lectorArchivos.leerArchivoTXT("archivoPrueba.txt"));
+	    	System.out.println(lectorArchivos.leerArchivoTXT("archivoPrueba.txt"));
+	      break;
+	    case 3:
 	    	System.out.println(lectorArchivos.leerArchivoCSV("films_score.csv"));
+	      break;
+	    case 4:
+	    	System.out.println(lectorArchivos.leerArchivoXML("books.xml"));
 	      break;
 	    default:
 	    	System.out.println("Selección invalida");
