@@ -8,6 +8,7 @@ import java.util.Scanner;
 import org.junit.Test;
 
 import RetoWindows.EntradaEstandar;
+import RetoWindows.Excepcion;
 import RetoWindows.LectorEntradaEstandar;
 
 public class TestEntradaEstandar {
@@ -32,8 +33,5 @@ public class TestEntradaEstandar {
 		assertEquals(false, entradaEstandar.ComprobarEntrada(lectorMock, reader));
 	}
 	
-	@Test
-	public void testMostrarEntrada() {
-		
-	}
+	
 }
