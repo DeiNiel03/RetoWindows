@@ -1,12 +1,8 @@
 package RetoWindows;
 
-public class Excepcion extends Exception{
+public class Excepcion extends Exception {
 	
-	public Excepcion() {
-		
-	}
-	
-	public void ErrorEntrada() {
+	public void errorEntrada() {
 		throw new IllegalArgumentException("El texto de la busqueda debe ser unicamente alphanumerico, intentelo de nuevo");
 	}
 }
