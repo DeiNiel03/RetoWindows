@@ -1,13 +1,8 @@
 package RetoWindows;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class EscritorArchivos {
 	
@@ -37,5 +32,13 @@ public class EscritorArchivos {
            }
         }
     }
+	
+	public void escribirCSV(String nombreArchivo) {
+		
+	}
+	
+	public void escribirXML(String nombreArchivo) {
+		
+	}
 
 }
