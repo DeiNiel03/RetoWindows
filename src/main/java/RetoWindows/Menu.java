@@ -4,19 +4,19 @@ import java.util.Scanner;
 
 public class Menu {
 	
-	int option;
+	String option, resultado;
 	LectorArchivos lectorArchivos;
 	EscritorArchivos escritorArchivos;
 	LectorEntradaEstandar lectorEntradaEstandar;
 	
 	public Menu(Scanner reader) {
-		option = 0;
 		lectorArchivos = new LectorArchivos();
 		escritorArchivos = new EscritorArchivos();
 		lectorEntradaEstandar = new LectorEntradaEstandar(reader);
-		while (option != 5 ) {
-			mostrarMenu();
-		    option = reader.nextInt();
+		option = mostrarMenu(reader, option);
+		ejecutarOpcion(option);
+		while (option != "" ) {
+			option = mostrarMenu(reader, option);
 		    ejecutarOpcion(option);
 		}
 	}
@@ -24,49 +24,63 @@ public class Menu {
 	/**
 	 * Muestra el menu de opciones
 	 */
-	public void mostrarMenu() {
+	public String mostrarMenu(Scanner reader, String option) {
 	    System.out.println("SELECCIONA UNA OPCIÓN");
 	    System.out.println("======================");
 	    System.out.println("1 - Leer desde entrada estandar");
 	    System.out.println("2 - Leer archivo TXT");
 	    System.out.println("3 - Escribir archivo TXT");
 	    System.out.println("4 - Leer archivo CSV");
-	    System.out.println("5 - Leer archivo XML");
-	    System.out.println("5 - Salir");
+	    System.out.println("5 - Escribir archivo CSV");
+	    System.out.println("6 - Leer archivo XML");
+	    System.out.println("7 - Escribir archivo XML");
+	    System.out.println("8 - Salir");
 	    System.out.println();
+	    option = reader.next();
+	    return option;
 	}
 	
 	/**
 	 * Ejecuta la opcion seleccionada
 	 * @param option
 	 */
-	public void ejecutarOpcion(int option) {
+	public void ejecutarOpcion(String option) {
 		switch (option) {
-		    case 1:
+		    case "1":
 				Boolean valida = false;
 				while(valida == false) {
 					valida = lectorEntradaEstandar.comprobarEntrada();
 				}
-				System.out.println(lectorEntradaEstandar.devolverEntrada());
+				resultado = lectorEntradaEstandar.devolverEntrada();
+				System.out.println(resultado);
 				break;
-		    case 2:
-		    	System.out.println(lectorArchivos.leerArchivoTXT("archivoPrueba.txt"));
+		    case "2":
+		    	lectorArchivos.leerArchivoTXT("archivoPrueba.txt");
+		    	System.out.println(resultado);
 		    	break;
-		    case 3:
+		    case "3":
 		    	escritorArchivos.escribirArchivoTXT("archivoPrueba.txt");
 		    	break;
-		    case 4:
-		    	System.out.println(lectorArchivos.leerArchivoCSV("films_score.csv"));
+		    case "4":
+		    	resultado = lectorArchivos.leerArchivoTXT("archivoPrueba.txt");
+		    	System.out.println(resultado);
 		    	break;
-		    case 5:
-		    	System.out.println(lectorArchivos.leerArchivoXML("books.xml"));
+		    case "5":
+		    	// falta
 		    	break;
-		    case 6:
-		    	System.out.println("Salir");
+		    case "6":
+		    	resultado = lectorArchivos.leerArchivoXML("books.xml");
+		    	System.out.println(resultado);
+		    	break;
+		    case "7":
+		    	// falta
+		    	break;
+		    case "8":
 		    	System.exit(0);
 		    	break;
 		    default:
-		    	System.out.println("Selección invalida");
+		    	System.out.println("Selección invalida. Debe introducir un numero entre 1 y 6. \n");
 	    }
 	}
+	
 }

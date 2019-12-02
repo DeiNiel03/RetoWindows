@@ -37,7 +37,7 @@ public class LectorArchivos {
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			JOptionPane.showMessageDialog(new JFrame(), e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(new JFrame(), e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 		}
 		return resultado;
@@ -59,7 +59,7 @@ public class LectorArchivos {
 				System.out.println(Arrays.toString(nextLine));
 			}
 		} catch (Exception e) {
-			//Excepción que corresponda
+			e.printStackTrace();
 		} finally {
 			if (null != reader) {
 				try {

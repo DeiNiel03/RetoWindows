@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LectorEntradaEstandar {
 	
-	String entrada = "";
+	String entrada;
 	Scanner reader;
 	
 	public LectorEntradaEstandar(Scanner reader) {
