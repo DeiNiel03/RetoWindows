@@ -82,5 +82,4 @@ public class EscritorArchivos {
 	public void escribirXML(String nombreArchivo) {
 		
 	}
-
 }
