@@ -3,9 +3,11 @@ package RetoWindows;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -51,7 +53,7 @@ public class LectorArchivos {
 	 */
 	public ArrayList<String> leerArchivoCSV(String nombreArchivo) {
 		CSVReader reader = null;
-		ArrayList<String> resultado = new ArrayList();
+		ArrayList<String> resultado = new ArrayList<String>();
 		String path = "biblioteca" + File.separator + nombreArchivo; //films_score.csv
 		try {
 			reader = new CSVReader(new FileReader(path));
@@ -72,6 +74,36 @@ public class LectorArchivos {
 		}
 		return resultado;
 	}
+	
+	
+	public void leerCVSFormatoFilms(String nombreArchivo, ArrayList<String> res){
+		
+		String path = "biblioteca" + File.separator + nombreArchivo;
+		FileWriter writer = null; 
+		
+		
+		  try {
+			
+			writer = new FileWriter(path); 
+			for(String str: res) {
+				writer.write(str + System.lineSeparator());
+				
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+
+			try {
+				writer.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	
 	/**
 	 * Devuelve el contenido del archivo XML cuyo nombre se le pasa por parametro

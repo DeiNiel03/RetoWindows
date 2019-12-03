@@ -1,5 +1,6 @@
 package RetoWindows;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -90,7 +91,8 @@ public class Menu {
 		    	System.out.println(resultado);
 		    	break;
 		    case "7":
-		    	// falta
+		    	ArrayList<String> resultado = lectorArchivos.leerArchivoCSV("films_score.csv");
+		    	lectorArchivos.leerCVSFormatoFilms("peliculasPruebacsv.txt", resultado);
 		    	break;
 		    case "8":
 		    	System.exit(0);
