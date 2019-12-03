@@ -15,10 +15,10 @@ public class Menu {
 		escritorArchivos = new EscritorArchivos();
 		lectorEntradaEstandar = new LectorEntradaEstandar(reader);
 		option = mostrarMenu(reader, option);
-		ejecutarOpcion(option, reader);
+		ejecutarOpcion(reader, option);
 		while (option != "" ) {
 			option = mostrarMenu(reader, option);
-		    ejecutarOpcion(option, reader);
+		    ejecutarOpcion(reader, option);
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class Menu {
 	 * Ejecuta la opcion seleccionada
 	 * @param option
 	 */
-	public void ejecutarOpcion(String option, Scanner reader) {
+	public void ejecutarOpcion(Scanner reader, String option) {
 		switch (option) {
 		    case "1":
 				Boolean valida = false;
@@ -83,7 +83,7 @@ public class Menu {
 		    	System.out.println(resultado);
 		    	break;
 		    case "5":
-		    	// falta
+		    	escritorArchivos.escribirCSV("films_score.csv", reader);
 		    	break;
 		    case "6":
 		    	resultado = lectorArchivos.leerArchivoXML("books.xml");
