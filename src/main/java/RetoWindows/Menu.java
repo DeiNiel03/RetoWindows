@@ -1,6 +1,10 @@
 package RetoWindows;
 
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import dnl.utils.text.table.TextTable;
 
 public class Menu {
 	
@@ -64,11 +68,27 @@ public class Menu {
 		    	System.out.println(resultado);
 		    	break;
 		    case "3":
-		    	escritorArchivos.escribirArchivoTXT("archivoPrueba.txt");
+		    	String archivo;
+		    	int lineas;
+		    	boolean continuar = true;
+		    	
+		    	System.out.println("Introduce el nombre del archivo en el que quieres escribir: ");
+		    	archivo = reader.next();
+		    	while(continuar) {
+		    		try {
+		    			System.out.println("Numero de lineas que quieres escribir: ");
+		    			lineas = reader.nextInt();
+		    			escritorArchivos.escribirArchivoTXT(archivo + ".txt", lineas, reader);
+		    			continuar = false;
+		    		} catch(InputMismatchException e) {
+		    			System.out.println("Valor no valido");
+		    			reader.nextLine();
+		    		}
+		    	}
 		    	break;
 		    case "4":
-		    	resultado = lectorArchivos.leerArchivoTXT("archivoPrueba.txt");
-		    	System.out.println(resultado);
+		    	ArrayList<String> resul = lectorArchivos.leerArchivoCSV("films_score.csv");
+		    	mostrarCSV(resul);
 		    	break;
 		    case "5":
 		    	escritorArchivos.escribirCSV("films_score.csv", reader);
@@ -78,7 +98,8 @@ public class Menu {
 		    	System.out.println(resultado);
 		    	break;
 		    case "7":
-		    	// falta
+		    	ArrayList<String> resultado = lectorArchivos.leerArchivoCSV("films_score.csv");
+		    	lectorArchivos.leerCVSFormatoFilms("peliculasPruebacsv.txt", resultado);
 		    	break;
 		    case "8":
 		    	resultado = lectorArchivos.leerArchivoXML3("books.xml");
@@ -92,4 +113,25 @@ public class Menu {
 	    }
 	}
 	
+	private void mostrarCSV(ArrayList<String> contenido) {
+		String[][] contenidoFormato;
+		String[] titulos = null;
+		String[] contenidoLinea = null;
+		String linea = null;
+		
+		linea = contenido.get(0).replaceAll("[\\[\\]]", "");
+		titulos = linea.split(",");
+		contenido.remove(0);
+		contenidoFormato = new String[titulos.length][contenido.size()];
+		
+		for(int i = 0; i < contenido.size(); i++) {
+			linea = contenido.get(0).replaceAll("[\\[\\]]", "");
+			contenidoLinea = linea.split(",");
+			for(int j = 0; j < titulos.length; i++) {
+				contenidoFormato[j][i] = contenidoLinea[j];
+			}
+		}
+		TextTable tt = new TextTable(titulos, contenidoFormato);
+		tt.printTable();
+	}
 }
