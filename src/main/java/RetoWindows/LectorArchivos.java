@@ -51,11 +51,11 @@ public class LectorArchivos {
 	 */
 	public ArrayList<String> leerArchivoCSV(String nombreArchivo) {
 		CSVReader reader = null;
-		ArrayList<String> resultado = new ArrayList();
+		ArrayList<String> resultado = new ArrayList<String>();
 		String path = "biblioteca" + File.separator + nombreArchivo; //films_score.csv
 		try {
 			reader = new CSVReader(new FileReader(path));
-			String[] nextLine=null;
+			String[] nextLine = null;
 			while ((nextLine = reader.readNext()) != null) {
 				resultado.add(Arrays.toString(nextLine));
 			}
