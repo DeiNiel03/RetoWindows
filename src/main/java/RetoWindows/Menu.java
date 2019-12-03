@@ -1,5 +1,6 @@
 package RetoWindows;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -14,10 +15,10 @@ public class Menu {
 		escritorArchivos = new EscritorArchivos();
 		lectorEntradaEstandar = new LectorEntradaEstandar(reader);
 		option = mostrarMenu(reader, option);
-		ejecutarOpcion(option);
+		ejecutarOpcion(option, reader);
 		while (option != "" ) {
 			option = mostrarMenu(reader, option);
-		    ejecutarOpcion(option);
+		    ejecutarOpcion(option, reader);
 		}
 	}
 	
@@ -44,7 +45,7 @@ public class Menu {
 	 * Ejecuta la opcion seleccionada
 	 * @param option
 	 */
-	public void ejecutarOpcion(String option) {
+	public void ejecutarOpcion(String option, Scanner reader) {
 		switch (option) {
 		    case "1":
 				Boolean valida = false;
@@ -59,7 +60,23 @@ public class Menu {
 		    	System.out.println(resultado);
 		    	break;
 		    case "3":
-		    	escritorArchivos.escribirArchivoTXT("archivoPrueba.txt");
+		    	String archivo;
+		    	int lineas;
+		    	boolean continuar = true;
+		    	
+		    	System.out.println("Introduce el nombre del archivo en el que quieres escribir: ");
+		    	archivo = reader.next();
+		    	while(continuar) {
+		    		try {
+		    			System.out.println("Numero de lineas que quieres escribir: ");
+		    			lineas = reader.nextInt();
+		    			escritorArchivos.escribirArchivoTXT(archivo + ".txt", lineas, reader);
+		    			continuar = false;
+		    		} catch(InputMismatchException e) {
+		    			System.out.println("Valor no valido");
+		    			reader.nextLine();
+		    		}
+		    	}
 		    	break;
 		    case "4":
 		    	resultado = lectorArchivos.leerArchivoTXT("archivoPrueba.txt");
