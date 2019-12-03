@@ -12,12 +12,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import com.opencsv.CSVReader;
 
@@ -74,19 +76,19 @@ public class LectorArchivos {
 		}
 		return resultado;
 	}
-	
+
 	public void leerCVSFormatoFilms(String nombreArchivo, ArrayList<String> res){
-		
+
 		String path = "biblioteca" + File.separator + nombreArchivo;
 		FileWriter writer = null; 
-		
-		
-		  try {
-			
+
+
+		try {
+
 			writer = new FileWriter(path); 
 			for(String str: res) {
 				writer.write(str + System.lineSeparator());
-				
+
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -102,7 +104,7 @@ public class LectorArchivos {
 			}
 		}
 	}
-	
+
 	/**
 	 * Devuelve el contenido del archivo XML cuyo nombre se le pasa por parametro
 	 * @param nombreArchivo
@@ -143,6 +145,71 @@ public class LectorArchivos {
 		return root;
 	}
 
+
+	private String printNote2(NodeList nodeList) {
+		String data = "";
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			if (nodeList.item(i).hasChildNodes()) {
+				NodeList nodeList2 = nodeList.item(i).getChildNodes();
+				for (int j = 0; j < nodeList2.getLength(); j++) {
+					if (nodeList2.item(j).hasChildNodes()) {
+						NodeList nodeList3 = nodeList2.item(j).getChildNodes();
+
+						for (int count = 0; count < nodeList3.getLength(); count++) {
+							Node tempNode = nodeList3.item(count);
+							// make sure it's element node.
+							if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
+								// get node name and value
+								data += tempNode.getNodeName() + ": "+ tempNode.getTextContent() + "\n";
+								if (tempNode.hasAttributes()) {
+									// get attributes names and values
+									NamedNodeMap nodeMap = tempNode.getAttributes();
+									for (int k = 0; k < nodeMap.getLength(); k++) {
+										Node node = nodeMap.item(k);
+										data += "attr name : " + node.getNodeName() + "\n";
+										data += "attr value : " + node.getNodeValue() + "\n";
+									}
+								}
+							}
+						}
+						data += "-------------------------------------\n";
+					}
+				}
+			}
+		}
+		return data;
+	}
+	
+	private String printNote3(NodeList nodeList) {
+		String data = "";
+
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			if (nodeList.item(i).hasChildNodes()) {
+				data = printNote3(nodeList.item(i).getChildNodes());
+			} else {
+				for (int count = 0; count < nodeList.getLength(); count++) {
+					Node tempNode = nodeList.item(count);
+					if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
+						data += tempNode.getNodeName() + ": "+ tempNode.getTextContent() + "\n";
+						if (tempNode.hasAttributes()) {
+							NamedNodeMap nodeMap = tempNode.getAttributes();
+							for (int k = 0; k < nodeMap.getLength(); k++) {
+								Node node = nodeMap.item(k);
+								data += "attr name : " + node.getNodeName() + "\n";
+								data += "attr value : " + node.getNodeValue() + "\n";
+							}
+						}
+					}
+				}
+				
+				data += "-------------------------------------\n";
+			}
+
+		}
+
+		return data;
+	}
+
 	public String leerArchivoXML2(String nombreArchivo) {
 		String data = "";
 		String filePath = "biblioteca" + File.separator + nombreArchivo; //books.xml
@@ -150,23 +217,9 @@ public class LectorArchivos {
 		try {
 			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 			Document doc = dBuilder.parse(xmlFile);
-			data += "Root element :" + doc.getDocumentElement().getNodeName();
 			if (doc.hasChildNodes()) {
-				
 				NodeList nodeList = doc.getChildNodes();
-				for (int i = 0; i < nodeList.getLength(); i++) {
-					if (nodeList.item(i).hasChildNodes()) {
-						
-						NodeList nodeList2 = nodeList.item(i).getChildNodes();
-						for (int j = 0; j < nodeList2.getLength(); j++) {
-							if (nodeList2.item(j).hasChildNodes()) {
-								data += printNote(nodeList2.item(j).getChildNodes());
-							}
-						}
-						
-					}
-				}
-				
+				data = printNote3(nodeList);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -174,32 +227,4 @@ public class LectorArchivos {
 		return data;
 	}
 
-	private String printNote(NodeList nodeList) {
-		String data = "";
-		for (int count = 0; count < nodeList.getLength(); count++) {
-			Node tempNode = nodeList.item(count);
-			// make sure it's element node.
-			if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
-				// get node name and value
-				data += "\nNode Name =" + tempNode.getNodeName() + " [OPEN]";
-				data += "Node Value =" + tempNode.getTextContent();
-				if (tempNode.hasAttributes()) {
-					// get attributes names and values
-					NamedNodeMap nodeMap = tempNode.getAttributes();
-					for (int i = 0; i < nodeMap.getLength(); i++) {
-						Node node = nodeMap.item(i);
-						data += "attr name : " + node.getNodeName();
-						data += "attr value : " + node.getNodeValue();
-					}
-				}
-				if (tempNode.hasChildNodes()) {
-					// loop again if has child nodes
-					printNote(tempNode.getChildNodes());
-				}
-				data += "Node Name =" + tempNode.getNodeName() + " [CLOSE]";
-			}
-		}
-		return data;
-	}
-	
 }

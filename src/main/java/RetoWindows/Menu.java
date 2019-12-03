@@ -94,7 +94,7 @@ public class Menu {
 		    	escritorArchivos.escribirCSV("films_score.csv", reader);
 		    	break;
 		    case "6":
-		    	resultado = lectorArchivos.leerArchivoXML("books.xml");
+		    	resultado = lectorArchivos.leerArchivoXML2("books.xml");
 		    	System.out.println(resultado);
 		    	break;
 		    case "7":
@@ -102,8 +102,8 @@ public class Menu {
 		    	lectorArchivos.leerCVSFormatoFilms("peliculasPruebacsv.txt", resultado);
 		    	break;
 		    case "8":
-		    	resultado = lectorArchivos.leerArchivoXML3("books.xml");
-		    	conversion.printTxt("pruebaXMLtoTXT.txt", resultado, "Libros");
+		    	String data = lectorArchivos.leerArchivoXML2("books.xml");
+		    	conversion.printTxt("pruebaXMLtoTXT.txt", data, "Libros");
 		    	break;
 		    case "9":
 		    	System.exit(0);
