@@ -120,17 +120,14 @@ public class LectorArchivos {
 			dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(xmlFile);
 			doc.getDocumentElement().normalize();
-			root = "Root element: " + doc.getDocumentElement().getNodeName() + "\n";
-			root += "----------------------------\n";
 			NodeList nodeList = doc.getElementsByTagName("book");
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				Node nNode = nodeList.item(i);
-				root += "Current Element: " + nNode.getNodeName() + "\n";
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
 					Element eElement = (Element) nNode;
 
-					root += "Title: " + eElement.getElementsByTagName("author").item(0).getTextContent() + "\n";
+					root += "Author: " + eElement.getElementsByTagName("author").item(0).getTextContent() + "\n";
 					root += "Title: " + eElement.getElementsByTagName("title").item(0).getTextContent() + "\n";
 					root += "Genre: " + eElement.getElementsByTagName("genre").item(0).getTextContent() + "\n";
 					root += "Price: " + eElement.getElementsByTagName("price").item(0).getTextContent() + "\n";
@@ -143,88 +140,6 @@ public class LectorArchivos {
 			e.printStackTrace();
 		}
 		return root;
-	}
-
-
-	private String printNote2(NodeList nodeList) {
-		String data = "";
-		for (int i = 0; i < nodeList.getLength(); i++) {
-			if (nodeList.item(i).hasChildNodes()) {
-				NodeList nodeList2 = nodeList.item(i).getChildNodes();
-				for (int j = 0; j < nodeList2.getLength(); j++) {
-					if (nodeList2.item(j).hasChildNodes()) {
-						NodeList nodeList3 = nodeList2.item(j).getChildNodes();
-
-						for (int count = 0; count < nodeList3.getLength(); count++) {
-							Node tempNode = nodeList3.item(count);
-							// make sure it's element node.
-							if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
-								// get node name and value
-								data += tempNode.getNodeName() + ": "+ tempNode.getTextContent() + "\n";
-								if (tempNode.hasAttributes()) {
-									// get attributes names and values
-									NamedNodeMap nodeMap = tempNode.getAttributes();
-									for (int k = 0; k < nodeMap.getLength(); k++) {
-										Node node = nodeMap.item(k);
-										data += "attr name : " + node.getNodeName() + "\n";
-										data += "attr value : " + node.getNodeValue() + "\n";
-									}
-								}
-							}
-						}
-						data += "-------------------------------------\n";
-					}
-				}
-			}
-		}
-		return data;
-	}
-	
-	private String printNote3(NodeList nodeList) {
-		String data = "";
-
-		for (int i = 0; i < nodeList.getLength(); i++) {
-			if (nodeList.item(i).hasChildNodes()) {
-				data = printNote3(nodeList.item(i).getChildNodes());
-			} else {
-				for (int count = 0; count < nodeList.getLength(); count++) {
-					Node tempNode = nodeList.item(count);
-					if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
-						data += tempNode.getNodeName() + ": "+ tempNode.getTextContent() + "\n";
-						if (tempNode.hasAttributes()) {
-							NamedNodeMap nodeMap = tempNode.getAttributes();
-							for (int k = 0; k < nodeMap.getLength(); k++) {
-								Node node = nodeMap.item(k);
-								data += "attr name : " + node.getNodeName() + "\n";
-								data += "attr value : " + node.getNodeValue() + "\n";
-							}
-						}
-					}
-				}
-				
-				data += "-------------------------------------\n";
-			}
-
-		}
-
-		return data;
-	}
-
-	public String leerArchivoXML2(String nombreArchivo) {
-		String data = "";
-		String filePath = "biblioteca" + File.separator + nombreArchivo; //books.xml
-		File xmlFile = new File(filePath);
-		try {
-			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-			Document doc = dBuilder.parse(xmlFile);
-			if (doc.hasChildNodes()) {
-				NodeList nodeList = doc.getChildNodes();
-				data = printNote3(nodeList);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return data;
 	}
 
 }
