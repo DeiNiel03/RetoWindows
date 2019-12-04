@@ -112,12 +112,14 @@ public class Menu {
 		linea = contenido.get(0).replaceAll("[\\[\\]]", "");
 		titulos = linea.split(",");
 		contenido.remove(0);
+		int largo = contenido.size() - 1;
+		contenido.remove(largo);
 		contenidoFormato = new String[titulos.length][contenido.size()];
 		
 		for(int i = 0; i < contenido.size(); i++) {
 			linea = contenido.get(0).replaceAll("[\\[\\]]", "");
 			contenidoLinea = linea.split(",");
-			for(int j = 0; j < titulos.length; i++) {
+			for(int j = 0; j < titulos.length; j++) {
 				contenidoFormato[j][i] = contenidoLinea[j];
 			}
 		}
