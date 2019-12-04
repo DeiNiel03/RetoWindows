@@ -77,7 +77,7 @@ public class LectorArchivos {
 		return resultado;
 	}
 
-	public void leerCVSFormatoFilms(String nombreArchivo, ArrayList<String> res){
+	public void leerCSVFormatoFilms(String nombreArchivo, ArrayList<String> res){
 
 		String path = "biblioteca" + File.separator + nombreArchivo;
 		FileWriter writer = null; 
