@@ -12,11 +12,15 @@ public class Menu {
 	LectorArchivos lectorArchivos;
 	EscritorArchivos escritorArchivos;
 	LectorEntradaEstandar lectorEntradaEstandar;
+	Conversion conversion;
 	
 	public Menu(Scanner reader) {
 		lectorArchivos = new LectorArchivos();
 		escritorArchivos = new EscritorArchivos();
 		lectorEntradaEstandar = new LectorEntradaEstandar(reader);
+		conversion = new Conversion();
+		
+		// muestra el menu hasta que se eliga una opcion válida
 		option = mostrarMenu(reader, option);
 		ejecutarOpcion(reader, option);
 		while (option != "" ) {
@@ -38,7 +42,8 @@ public class Menu {
 	    System.out.println("5 - Escribir archivo CSV");
 	    System.out.println("6 - Leer archivo XML");
 	    System.out.println("7 - Escribir archivo XML");
-	    System.out.println("8 - Salir");
+	    System.out.println("8 - Convertir XML a TXT");
+	    System.out.println("9 - Salir");
 	    System.out.println();
 	    option = reader.next();
 	    return option;
@@ -89,13 +94,18 @@ public class Menu {
 		    	escritorArchivos.escribirCSV("films_score.csv", reader);
 		    	break;
 		    case "6":
-		    	resultado = lectorArchivos.leerArchivoXML("books.xml");
+		    	resultado = lectorArchivos.leerArchivoXML2("books.xml");
 		    	System.out.println(resultado);
 		    	break;
 		    case "7":
-		    	// falta
+		    	ArrayList<String> resultado = lectorArchivos.leerArchivoCSV("films_score.csv");
+		    	lectorArchivos.leerCVSFormatoFilms("peliculasPruebacsv.txt", resultado);
 		    	break;
 		    case "8":
+		    	String data = lectorArchivos.leerArchivoXML2("books.xml");
+		    	conversion.printTxt("pruebaXMLtoTXT.txt", data, "Libros");
+		    	break;
+		    case "9":
 		    	System.exit(0);
 		    	break;
 		    default:
