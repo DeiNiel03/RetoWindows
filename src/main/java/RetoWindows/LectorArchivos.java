@@ -71,6 +71,8 @@ public class LectorArchivos {
 				}
 			} 
 		}
+		int largo = resultado.size();
+		resultado.remove(largo - 1);
 		return resultado;
 	}
 
