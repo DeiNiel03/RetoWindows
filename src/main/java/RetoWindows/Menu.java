@@ -39,7 +39,7 @@ public class Menu {
 	    System.out.println("4 - Leer archivo CSV");
 	    System.out.println("5 - Escribir archivo CSV");
 	    System.out.println("6 - Leer archivo XML");
-	    System.out.println("7 - Escribir archivo XML");
+	    System.out.println("7 - Convertir archivo CSV a TXT");
 	    System.out.println("8 - Convertir XML a TXT");
 	    System.out.println("9 - Salir");
 	    System.out.println();
@@ -92,15 +92,15 @@ public class Menu {
 		    	escritorArchivos.escribirCSV("films_score.csv", reader);
 		    	break;
 		    case "6":
-		    	resultado = lectorArchivos.leerArchivoXML2("books.xml");
+		    	resultado = lectorArchivos.leerArchivoXML("books.xml");
 		    	System.out.println(resultado);
 		    	break;
 		    case "7":
 		    	ArrayList<String> resultado = lectorArchivos.leerArchivoCSV("films_score.csv");
-		    	lectorArchivos.leerCVSFormatoFilms("peliculasPruebacsv.txt", resultado);
+		    	lectorArchivos.leerCSVFormatoFilms("peliculasPruebacsv.txt", resultado);
 		    	break;
 		    case "8":
-		    	String data = lectorArchivos.leerArchivoXML2("books.xml");
+		    	String data = lectorArchivos.leerArchivoXML("books.xml");
 		    	conversion.printTxt("pruebaXMLtoTXT.txt", data, "Libros");
 		    	break;
 		    case "9":
