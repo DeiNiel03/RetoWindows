@@ -125,14 +125,19 @@ public class Menu {
 		contenido.remove(0);
 		contenidoFormato = new String[titulos.length][contenido.size()];
 		
-		for(int i = 0; i < contenido.size(); i++) {
-			linea = contenido.get(0).replaceAll("[\\[\\]]", "");
-			contenidoLinea = linea.split(",");
-			for(int j = 0; j < titulos.length; i++) {
-				contenidoFormato[j][i] = contenidoLinea[j];
-			}
+//		for(int i = 0; i < contenido.size(); i++) {
+//			linea = contenido.get(0).replaceAll("[\\[\\]]", "");
+//			contenidoLinea = linea.split(",");
+//			for(int j = 0; j < titulos.length; i++) {
+//				contenidoFormato[j][i] = contenidoLinea[j];
+//			}
+//		}
+		
+		for(int i = 0; i < titulos.length; i++) {
+			System.out.println(titulos[i].trim());
 		}
-		TextTable tt = new TextTable(titulos, contenidoFormato);
-		tt.printTable();
+		
+//		TextTable tt = new TextTable(titulos, contenidoFormato);
+//		tt.printTable();
 	}
 }

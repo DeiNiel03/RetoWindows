@@ -12,14 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import com.opencsv.CSVReader;
 
@@ -82,24 +79,24 @@ public class LectorArchivos {
 		String path = "biblioteca" + File.separator + nombreArchivo;
 		FileWriter writer = null; 
 
-
 		try {
-
-			writer = new FileWriter(path); 
+			writer = new FileWriter(path);
+			res.remove(0);
+			res.remove(res.size()-1);
 			for(String str: res) {
-				writer.write(str + System.lineSeparator());
-
+				String[] linea = str.split(",");
+				writer.write("Titulo: " + linea[2].trim().replace("]", "") + "\n");
+				writer.write("Año: " + linea[0].trim().replace("[", "") + "\n");
+				writer.write("Puntuación: " + linea[1].trim() + "\n");
+				writer.write("----------------------------\n");
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally {
-
 			try {
 				writer.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -126,13 +123,13 @@ public class LectorArchivos {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
 					Element eElement = (Element) nNode;
-
-					root += "Author: " + eElement.getElementsByTagName("author").item(0).getTextContent() + "\n";
+					String[] author = eElement.getElementsByTagName("author").item(0).getTextContent().split(",");
+					root += "Author: " + author[1].trim() + " " + author[0].trim() + "\n";
 					root += "Title: " + eElement.getElementsByTagName("title").item(0).getTextContent() + "\n";
 					root += "Genre: " + eElement.getElementsByTagName("genre").item(0).getTextContent() + "\n";
-					root += "Price: " + eElement.getElementsByTagName("price").item(0).getTextContent() + "\n";
-					root += "Publish Date: " + eElement.getElementsByTagName("publish_date").item(0).getTextContent() + "\n";
-					root += "Description: " + eElement.getElementsByTagName("description").item(0).getTextContent() + "\n";
+					root += "Price: " + eElement.getElementsByTagName("price").item(0).getTextContent().replace(".", ",") + " € \n";
+					root += "Publish Date: " + eElement.getElementsByTagName("publish_date").item(0).getTextContent().replace("-", "/") + "\n";
+					root += "Description: " + eElement.getElementsByTagName("description").item(0).getTextContent().replace("\n", "").replaceAll("( )+", " ") + "\n";
 					root += "----------------------------\n";
 				}
 			}
