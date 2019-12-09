@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import dnl.utils.text.table.TextTable;
-
 public class Menu {
 	
 	String option, resultado;
@@ -114,26 +112,13 @@ public class Menu {
 	}
 	
 	private void mostrarCSV(ArrayList<String> contenido) {
-		String[][] contenidoFormato;
-		String[] titulos = null;
-		String[] contenidoLinea = null;
 		String linea = null;
-		
-		linea = contenido.get(0).replaceAll("[\\[\\]]", "");
-		titulos = linea.split(",");
-		contenido.remove(0);
-		int largo = contenido.size() - 1;
-		contenido.remove(largo);
-		contenidoFormato = new String[titulos.length][contenido.size()];
+		String[] lineaSeparada = null;
 		
 		for(int i = 0; i < contenido.size(); i++) {
-			linea = contenido.get(0).replaceAll("[\\[\\]]", "");
-			contenidoLinea = linea.split(",");
-			for(int j = 0; j < titulos.length; j++) {
-				contenidoFormato[j][i] = contenidoLinea[j];
-			}
+			linea = contenido.get(i).replaceAll("[\\[\\]]", "");
+			lineaSeparada = linea.split(",");
+			System.out.format("%4s%6s%40s", lineaSeparada[0], lineaSeparada[1], lineaSeparada[2] + "\n");
 		}
-		TextTable tt = new TextTable(titulos, contenidoFormato);
-		tt.printTable();
 	}
 }
