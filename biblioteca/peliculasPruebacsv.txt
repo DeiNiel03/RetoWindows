@@ -1,0 +1,348 @@
+Titulo: Greetings
+Año: 1968
+Puntuación: 86
+----------------------------
+Titulo: Bloody Mama
+Año: 1970
+Puntuación: 17
+----------------------------
+Titulo: Hi
+Año: 1970
+Puntuación: 73
+----------------------------
+Titulo: Born to Win
+Año: 1971
+Puntuación: 40
+----------------------------
+Titulo: Mean Streets
+Año: 1973
+Puntuación: 98
+----------------------------
+Titulo: Bang the Drum Slowly
+Año: 1973
+Puntuación: 88
+----------------------------
+Titulo: The Godfather
+Año: 1974
+Puntuación: 97
+----------------------------
+Titulo: The Last Tycoon
+Año: 1976
+Puntuación: 41
+----------------------------
+Titulo: Taxi Driver
+Año: 1976
+Puntuación: 99
+----------------------------
+Titulo: 1900
+Año: 1977
+Puntuación: 47
+----------------------------
+Titulo: New York
+Año: 1977
+Puntuación: 67
+----------------------------
+Titulo: The Deer Hunter
+Año: 1978
+Puntuación: 93
+----------------------------
+Titulo: Raging Bull
+Año: 1980
+Puntuación: 97
+----------------------------
+Titulo: True Confessions
+Año: 1981
+Puntuación: 75
+----------------------------
+Titulo: The King of Comedy
+Año: 1983
+Puntuación: 90
+----------------------------
+Titulo: Once Upon a Time in America
+Año: 1984
+Puntuación: 89
+----------------------------
+Titulo: Falling in Love
+Año: 1984
+Puntuación: 60
+----------------------------
+Titulo: Brazil
+Año: 1985
+Puntuación: 98
+----------------------------
+Titulo: The Mission
+Año: 1986
+Puntuación: 65
+----------------------------
+Titulo: Dear America: Letters Home From Vietnam
+Año: 1987
+Puntuación: 100
+----------------------------
+Titulo: The Untouchables
+Año: 1987
+Puntuación: 80
+----------------------------
+Titulo: Angel Heart
+Año: 1987
+Puntuación: 78
+----------------------------
+Titulo: Midnight Run
+Año: 1988
+Puntuación: 96
+----------------------------
+Titulo: Jacknife
+Año: 1989
+Puntuación: 64
+----------------------------
+Titulo: We're No Angels
+Año: 1989
+Puntuación: 47
+----------------------------
+Titulo: Awakenings
+Año: 1990
+Puntuación: 88
+----------------------------
+Titulo: Stanley & Iris
+Año: 1990
+Puntuación: 29
+----------------------------
+Titulo: Goodfellas
+Año: 1990
+Puntuación: 96
+----------------------------
+Titulo: Cape Fear
+Año: 1991
+Puntuación: 76
+----------------------------
+Titulo: Mistress
+Año: 1991
+Puntuación: 69
+----------------------------
+Titulo: Guilty by Suspicion
+Año: 1991
+Puntuación: 65
+----------------------------
+Titulo: Backdraft
+Año: 1991
+Puntuación: 71
+----------------------------
+Titulo: Thunderheart
+Año: 1992
+Puntuación: 87
+----------------------------
+Titulo: Night and the City
+Año: 1992
+Puntuación: 67
+----------------------------
+Titulo: This Boy's Life
+Año: 1993
+Puntuación: 75
+----------------------------
+Titulo: Mad Dog and Glory
+Año: 1993
+Puntuación: 78
+----------------------------
+Titulo: A Bronx Tale
+Año: 1993
+Puntuación: 96
+----------------------------
+Titulo: Mary Shelley's Frankenstein
+Año: 1994
+Puntuación: 39
+----------------------------
+Titulo: Casino
+Año: 1995
+Puntuación: 80
+----------------------------
+Titulo: Heat
+Año: 1995
+Puntuación: 86
+----------------------------
+Titulo: Sleepers
+Año: 1996
+Puntuación: 74
+----------------------------
+Titulo: The Fan
+Año: 1996
+Puntuación: 38
+----------------------------
+Titulo: Marvin's Room
+Año: 1996
+Puntuación: 80
+----------------------------
+Titulo: Wag the Dog
+Año: 1997
+Puntuación: 85
+----------------------------
+Titulo: Jackie Brown
+Año: 1997
+Puntuación: 87
+----------------------------
+Titulo: Cop Land
+Año: 1997
+Puntuación: 72
+----------------------------
+Titulo: Ronin
+Año: 1998
+Puntuación: 68
+----------------------------
+Titulo: Great Expectations
+Año: 1998
+Puntuación: 38
+----------------------------
+Titulo: Analyze This
+Año: 1999
+Puntuación: 69
+----------------------------
+Titulo: Flawless
+Año: 1999
+Puntuación: 43
+----------------------------
+Titulo: The Adventures of Rocky & Bullwinkle
+Año: 2000
+Puntuación: 43
+----------------------------
+Titulo: Meet the Parents
+Año: 2000
+Puntuación: 84
+----------------------------
+Titulo: Men of Honor
+Año: 2000
+Puntuación: 41
+----------------------------
+Titulo: The Score
+Año: 2001
+Puntuación: 73
+----------------------------
+Titulo: 15 Minutes
+Año: 2001
+Puntuación: 33
+----------------------------
+Titulo: City by the Sea
+Año: 2002
+Puntuación: 48
+----------------------------
+Titulo: Analyze That
+Año: 2002
+Puntuación: 27
+----------------------------
+Titulo: Godsend
+Año: 2003
+Puntuación: 4
+----------------------------
+Titulo: Shark Tale
+Año: 2004
+Puntuación: 35
+----------------------------
+Titulo: Meet the Fockers
+Año: 2004
+Puntuación: 38
+----------------------------
+Titulo: The Bridge of San Luis Rey
+Año: 2005
+Puntuación: 4
+----------------------------
+Titulo: Rent
+Año: 2005
+Puntuación: 46
+----------------------------
+Titulo: Hide and Seek
+Año: 2005
+Puntuación: 13
+----------------------------
+Titulo: The Good Shepherd
+Año: 2006
+Puntuación: 54
+----------------------------
+Titulo: Arthur and the Invisibles
+Año: 2007
+Puntuación: 21
+----------------------------
+Titulo: Captain Shakespeare
+Año: 2007
+Puntuación: 76
+----------------------------
+Titulo: Righteous Kill
+Año: 2008
+Puntuación: 19
+----------------------------
+Titulo: What Just Happened?
+Año: 2008
+Puntuación: 51
+----------------------------
+Titulo: Everybody's Fine
+Año: 2009
+Puntuación: 46
+----------------------------
+Titulo: Machete
+Año: 2010
+Puntuación: 72
+----------------------------
+Titulo: Little Fockers
+Año: 2010
+Puntuación: 10
+----------------------------
+Titulo: Stone
+Año: 2010
+Puntuación: 50
+----------------------------
+Titulo: Killer Elite
+Año: 2011
+Puntuación: 25
+----------------------------
+Titulo: New Year's Eve
+Año: 2011
+Puntuación: 7
+----------------------------
+Titulo: Limitless
+Año: 2011
+Puntuación: 70
+----------------------------
+Titulo: Silver Linings Playbook
+Año: 2012
+Puntuación: 92
+----------------------------
+Titulo: Being Flynn
+Año: 2012
+Puntuación: 51
+----------------------------
+Titulo: Red Lights
+Año: 2012
+Puntuación: 29
+----------------------------
+Titulo: Last Vegas
+Año: 2013
+Puntuación: 46
+----------------------------
+Titulo: The Big Wedding
+Año: 2013
+Puntuación: 7
+----------------------------
+Titulo: Grudge Match
+Año: 2013
+Puntuación: 29
+----------------------------
+Titulo: Killing Season
+Año: 2013
+Puntuación: 11
+----------------------------
+Titulo: The Bag Man
+Año: 2014
+Puntuación: 9
+----------------------------
+Titulo: Joy
+Año: 2015
+Puntuación: 60
+----------------------------
+Titulo: Heist
+Año: 2015
+Puntuación: 26
+----------------------------
+Titulo: The Intern
+Año: 2015
+Puntuación: 61
+----------------------------
+Titulo: Dirty Grandpa
+Año: 2016
+Puntuación: 11
+----------------------------
